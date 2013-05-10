@@ -21,17 +21,29 @@ static void *kActiveChangedKVO = &kActiveChangedKVO;
 }
 
 - (void)drawRect:(NSRect)rect 
-{    
+{
+#if WITHOUT_IMAGE
     rect = CGRectInset(rect, 2, 2);
     if ([self.delegate isActive]) {
         [[NSColor selectedMenuItemColor] set]; /* blueish */
     } else {
         [[NSColor textColor] set]; /* blackish */ 
     }
-    NSRectFill(rect);        
+    NSRectFill(rect);
+#else
+    NSImage *menuletIcon;
+    [[NSColor clearColor] set];   
+    if ([self.delegate isActive]) {
+        menuletIcon = [NSImage imageNamed:@"Moon_Full.png"];
+    } else {
+        menuletIcon = [NSImage imageNamed:@"Moon_New.png"];
+    }
+    [menuletIcon drawInRect:NSInsetRect(rect, 2, 2) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+#endif
 }
 
 - (void)mouseDown:(NSEvent *)event {
+    NSLog(@"Mouse down event: %@", event);
     [self.delegate menuletClicked];
 }
 

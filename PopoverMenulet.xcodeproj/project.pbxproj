@@ -17,6 +17,8 @@
 		B92217771458661C00273782 /* WOMController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92217761458661C00273782 /* WOMController.m */; };
 		B922177B14586B4800273782 /* WOMPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B922177914586B4800273782 /* WOMPopoverController.m */; };
 		B922177C14586B4800273782 /* WOMPopoverController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B922177A14586B4800273782 /* WOMPopoverController.xib */; };
+		B9C407DE173DBA70001B801C /* Moon_Full.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C407DC173DBA70001B801C /* Moon_Full.png */; };
+		B9C407DF173DBA70001B801C /* Moon_New.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C407DD173DBA70001B801C /* Moon_New.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B922177814586B4800273782 /* WOMPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMPopoverController.h; sourceTree = "<group>"; };
 		B922177914586B4800273782 /* WOMPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMPopoverController.m; sourceTree = "<group>"; };
 		B922177A14586B4800273782 /* WOMPopoverController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WOMPopoverController.xib; sourceTree = "<group>"; };
+		B9C407DC173DBA70001B801C /* Moon_Full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon_Full.png; sourceTree = "<group>"; };
+		B9C407DD173DBA70001B801C /* Moon_New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon_New.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 		B92217581458647500273782 /* PopoverMenulet */ = {
 			isa = PBXGroup;
 			children = (
+				B9C407E0173DBC76001B801C /* Images */,
 				B92217591458647500273782 /* Supporting Files */,
 				B92217641458647500273782 /* WOMAppDelegate.h */,
 				B92217651458647500273782 /* WOMAppDelegate.m */,
@@ -118,6 +123,15 @@
 				B92217611458647500273782 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B9C407E0173DBC76001B801C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B9C407DC173DBA70001B801C /* Moon_Full.png */,
+				B9C407DD173DBA70001B801C /* Moon_New.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +189,8 @@
 				B92217631458647500273782 /* Credits.rtf in Resources */,
 				B92217691458647500273782 /* MainMenu.xib in Resources */,
 				B922177C14586B4800273782 /* WOMPopoverController.xib in Resources */,
+				B9C407DE173DBA70001B801C /* Moon_Full.png in Resources */,
+				B9C407DF173DBA70001B801C /* Moon_New.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
