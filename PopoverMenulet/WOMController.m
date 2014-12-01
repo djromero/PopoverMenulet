@@ -28,7 +28,7 @@
 - (void)menuletClicked
 {
     NSLog(@"Menulet clicked");
-    WOMAppDelegate *appDelegate = [NSApp delegate];
+    WOMAppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
     self.active = ! self.active;
     if (self.active) {
         [self _setupPopover];
