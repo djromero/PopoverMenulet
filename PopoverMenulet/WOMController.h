@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WOMMenulet.h"
+#import "WOMPopoverController.h"
 
-@protocol WOMMenuletDelegate <NSObject>
+@interface WOMController : NSObject <WOMPopoverDelegate, WOMMenuletDelegate>
 
-- (BOOL)isActive;
-- (void)menuletClicked;
-
-@end
-
-@interface WOMController : NSObject <WOMMenuletDelegate>
-
-@property (nonatomic, assign, getter = isActive) BOOL active;
-@property (nonatomic, strong) NSPopover *popover;
+@property WOMPopoverController *viewController;     /** popover content view controller */
+@property WOMMenulet *menulet;                      /** menu bar icon view */
+@property NSStatusItem *item;                       /** status item */
+@property (getter = isActive) BOOL active;          /** menu bar active */
 
 @end

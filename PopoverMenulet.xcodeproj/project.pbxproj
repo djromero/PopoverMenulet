@@ -16,9 +16,10 @@
 		B9221774145864C700273782 /* WOMMenulet.m in Sources */ = {isa = PBXBuildFile; fileRef = B9221773145864C700273782 /* WOMMenulet.m */; };
 		B92217771458661C00273782 /* WOMController.m in Sources */ = {isa = PBXBuildFile; fileRef = B92217761458661C00273782 /* WOMController.m */; };
 		B922177B14586B4800273782 /* WOMPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B922177914586B4800273782 /* WOMPopoverController.m */; };
-		B922177C14586B4800273782 /* WOMPopoverController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B922177A14586B4800273782 /* WOMPopoverController.xib */; };
-		B9C407DE173DBA70001B801C /* Moon_Full.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C407DC173DBA70001B801C /* Moon_Full.png */; };
-		B9C407DF173DBA70001B801C /* Moon_New.png in Resources */ = {isa = PBXBuildFile; fileRef = B9C407DD173DBA70001B801C /* Moon_New.png */; };
+		B922177C14586B4800273782 /* WOMPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = B922177A14586B4800273782 /* WOMPopover.xib */; };
+		B93074711A2CF6B6001B694F /* NSWindow+BugFix.m in Sources */ = {isa = PBXBuildFile; fileRef = B93074701A2CF6B6001B694F /* NSWindow+BugFix.m */; };
+		B93074741A2CFBF4001B694F /* menulet-icon-off.png in Resources */ = {isa = PBXBuildFile; fileRef = B93074721A2CFBF4001B694F /* menulet-icon-off.png */; };
+		B93074751A2CFBF4001B694F /* menulet-icon-on.png in Resources */ = {isa = PBXBuildFile; fileRef = B93074731A2CFBF4001B694F /* menulet-icon-on.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +42,11 @@
 		B92217761458661C00273782 /* WOMController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMController.m; sourceTree = "<group>"; };
 		B922177814586B4800273782 /* WOMPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMPopoverController.h; sourceTree = "<group>"; };
 		B922177914586B4800273782 /* WOMPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMPopoverController.m; sourceTree = "<group>"; };
-		B922177A14586B4800273782 /* WOMPopoverController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WOMPopoverController.xib; sourceTree = "<group>"; };
-		B9C407DC173DBA70001B801C /* Moon_Full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon_Full.png; sourceTree = "<group>"; };
-		B9C407DD173DBA70001B801C /* Moon_New.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moon_New.png; sourceTree = "<group>"; };
+		B922177A14586B4800273782 /* WOMPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WOMPopover.xib; sourceTree = "<group>"; };
+		B930746F1A2CF6B6001B694F /* NSWindow+BugFix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWindow+BugFix.h"; sourceTree = "<group>"; };
+		B93074701A2CF6B6001B694F /* NSWindow+BugFix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+BugFix.m"; sourceTree = "<group>"; };
+		B93074721A2CFBF4001B694F /* menulet-icon-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menulet-icon-off.png"; sourceTree = "<group>"; };
+		B93074731A2CFBF4001B694F /* menulet-icon-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menulet-icon-on.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +111,9 @@
 				B9221773145864C700273782 /* WOMMenulet.m */,
 				B922177814586B4800273782 /* WOMPopoverController.h */,
 				B922177914586B4800273782 /* WOMPopoverController.m */,
-				B922177A14586B4800273782 /* WOMPopoverController.xib */,
+				B922177A14586B4800273782 /* WOMPopover.xib */,
+				B930746F1A2CF6B6001B694F /* NSWindow+BugFix.h */,
+				B93074701A2CF6B6001B694F /* NSWindow+BugFix.m */,
 			);
 			path = PopoverMenulet;
 			sourceTree = "<group>";
@@ -128,8 +133,8 @@
 		B9C407E0173DBC76001B801C /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				B9C407DC173DBA70001B801C /* Moon_Full.png */,
-				B9C407DD173DBA70001B801C /* Moon_New.png */,
+				B93074721A2CFBF4001B694F /* menulet-icon-off.png */,
+				B93074731A2CFBF4001B694F /* menulet-icon-on.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -185,12 +190,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93074751A2CFBF4001B694F /* menulet-icon-on.png in Resources */,
 				B922175D1458647500273782 /* InfoPlist.strings in Resources */,
 				B92217631458647500273782 /* Credits.rtf in Resources */,
 				B92217691458647500273782 /* MainMenu.xib in Resources */,
-				B922177C14586B4800273782 /* WOMPopoverController.xib in Resources */,
-				B9C407DE173DBA70001B801C /* Moon_Full.png in Resources */,
-				B9C407DF173DBA70001B801C /* Moon_New.png in Resources */,
+				B922177C14586B4800273782 /* WOMPopover.xib in Resources */,
+				B93074741A2CFBF4001B694F /* menulet-icon-off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +211,7 @@
 				B9221774145864C700273782 /* WOMMenulet.m in Sources */,
 				B92217771458661C00273782 /* WOMController.m in Sources */,
 				B922177B14586B4800273782 /* WOMPopoverController.m in Sources */,
+				B93074711A2CF6B6001B694F /* NSWindow+BugFix.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

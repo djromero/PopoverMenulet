@@ -14,8 +14,6 @@
 @interface WOMAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (nonatomic, strong) WOMMenulet *menulet;
-@property (nonatomic, strong) NSStatusItem *item;
 @property (nonatomic, strong) WOMController *controller;
 
 @end

@@ -8,6 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+/** Popover UI delegate */
+
+@protocol WOMPopoverDelegate <NSObject>
+
+- (void)popover:(id)popover didClickButtonForAction:(NSUInteger)action;
+
+@end
+
 @interface WOMPopoverController : NSViewController
+
+@property (weak) id<WOMPopoverDelegate> delegate;     /** interactions delegate */
+@property NSPopover *popover;                         /** default popover */
+@property (weak) IBOutlet NSSearchField *searchField; /** a text field */
+
+- (IBAction)updateFilter:(NSSearchField *)aSearchField;
 
 @end

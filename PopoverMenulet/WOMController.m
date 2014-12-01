@@ -11,32 +11,129 @@
 #import "WOMMenulet.h"
 #import "WOMPopoverController.h"
 
+@interface WOMController ()
+@property NSString *droppedDirectory; /* FIXME: temporary */
+@end
+
 @implementation WOMController
 
-@synthesize active;
-@synthesize popover;
+@synthesize viewController;
+@synthesize item;
 
-- (void)_setupPopover
+- (instancetype)init
 {
-    if (!self.popover) {
-        self.popover = [[NSPopover alloc] init];
-        self.popover.contentViewController = [[WOMPopoverController alloc] init];
-        self.popover.contentSize = (CGSize){320, 480};
+    self = [super init];
+    NSAssert(self, @"Fatal: error creating WOMController");
+
+    CGFloat thickness = [[NSStatusBar systemStatusBar] thickness];
+    self.item = [[NSStatusBar systemStatusBar] statusItemWithLength:thickness];
+    self.menulet = [[WOMMenulet alloc] initWithFrame:(NSRect){.size={thickness, thickness}}]; /* square item */
+    self.menulet.delegate = self;
+    [self.item setView:self.menulet];
+    [self.item setHighlightMode:NO]; /* blue background when clicked ? */
+
+    return self;
+}
+
+#pragma mark - Mouse handling 
+
+- (void)leftButtonHandler
+{
+    self.active = ! self.active;
+    if (self.isActive)
+        [self openPopover];
+    else
+        [self closePopover];
+}
+
+- (void)rightButtonHandler
+{
+    [self leftButtonHandler];
+}
+
+#pragma mark - Popover
+
+- (void)closePopover
+{
+    self.active = NO;
+    [self.viewController.popover performClose:self];
+    [self.menulet setNeedsDisplay:YES];
+}
+
+- (void)openPopover
+{
+    [self _setup];
+    [self.viewController.popover showRelativeToRect:[self.menulet frame]
+                                             ofView:self.menulet
+                                      preferredEdge:NSMinYEdge];
+}
+
+#pragma mark - WOMMenuletDelegate
+
+- (NSString *)activeImageName
+{
+    return @"menulet-icon-on.png";
+}
+
+- (NSString *)inactiveImageName
+{
+    return @"menulet-icon-off.png";
+}
+
+- (void)menuletClicked:(MouseButton)mouseButton
+{
+    NSLog(@"Menulet clicked");
+    if (mouseButton == LeftButton) {
+        [self leftButtonHandler];
+    }
+    else {
+        [self rightButtonHandler];
     }
 }
 
-- (void)menuletClicked
+- (NSArray *)dragTypes
 {
-    NSLog(@"Menulet clicked");
-    WOMAppDelegate *appDelegate = [[NSApplication sharedApplication] delegate];
-    self.active = ! self.active;
-    if (self.active) {
-        [self _setupPopover];
-        [self.popover showRelativeToRect:[appDelegate.menulet frame] 
-                                  ofView:appDelegate.menulet 
-                           preferredEdge:NSMinYEdge];
-    } else {
-        [self.popover performClose:self];
+    return @[NSFilenamesPboardType, NSURLPboardType, NSStringPboardType];
+}
+
+- (void)didDropFileItems:(NSArray *)items
+{
+    NSLog(@"Dropped: %@", items);
+    self.droppedDirectory = [items firstObject];
+}
+
+- (void)didDropURL:(NSURL *)url
+{
+    NSLog(@"Dropped: %@", url);
+    /* FIXME: folder action */
+}
+
+- (void)didDropText:(NSString *)text
+{
+    NSLog(@"Dropped: %@", text);
+    /* FIXME: folder action */
+}
+
+#pragma mark - WOMPopoverDelegate
+
+- (void)popover:(id)popover didClickButtonForAction:(NSUInteger)action
+{
+    NSLog(@"did click button for action %@", @(action));
+    [self closePopover];
+}
+
+- (NSString *)iconsDirectory
+{
+    return self.droppedDirectory;
+}
+
+#pragma mark - Private
+
+- (void)_setup
+{
+    if (!self.viewController) {
+        self.viewController = [[WOMPopoverController alloc] init];
+        self.viewController.delegate = self;
     }
 }
 
